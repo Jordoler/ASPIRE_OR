@@ -48,8 +48,9 @@ ENV PYTHON_JULIAPKG_OFFLINE="yes"
 ENV JULIA_PKG_OFFLINE="true"
 
 # Application Modules and Server Scripts
-COPY python-modules/MCPC_c_opt.py /opt/code/python-ismrmrd-server/MCPC_c_opt.py
-COPY python-modules/MCPCLogger.py /opt/code/python-ismrmrd-server/MCPCLogger.py
+COPY MCPC_c_opt.py /opt/code/python-ismrmrd-server/MCPC_c_opt.py
+COPY MCPC_uncompiled.py /opt/code/python-ismrmrd-server/MCPC_uncompiled.py
+COPY MCPCLogger.py /opt/code/python-ismrmrd-server/MCPCLogger.py
 # OLD VERSIONS
 #COPY python-modules/MCPC_compiled.py /opt/code/python-ismrmrd-server/MCPC_compiled.py # 
 #COPY python-modules/MCPC_uncompiled.py /opt/code/python-ismrmrd-server/MCPC_uncompiled.py
@@ -57,7 +58,7 @@ COPY python-modules/MCPCLogger.py /opt/code/python-ismrmrd-server/MCPCLogger.py
 
 # custom dependencies
 RUN mkdir -p /opt/code/python-ismrmrd-server/custom_scripts
-COPY python-modules/custom_scripts /opt/code/python-ismrmrd-server/custom_scripts
+COPY custom_scripts /opt/code/python-ismrmrd-server/custom_scripts
 
 # For testing purposes
 #COPY python-modules/test_scripts /opt/code/python-ismrmrd-server/
