@@ -1,0 +1,89 @@
+{
+  "general": {
+    "name": { "en": "MCPC" },
+    "version": "3.0.1",
+    "vendor": "MPGCBS",
+    "information": { "en": "Performs the MCPC-3D-S Algorithm." },
+    "id": "MCPC",
+      "regulatory_information":{
+        "device_trade_name":"MCPC",
+        "production_identifier":"3.0.1",
+        "manufacturer_address":"Leipzig, Germany",
+        "made_in":"DE",
+        "manufacture_date":"2026/06/02",
+        "material_number":"MCPC",
+        "gtin":"00000000000000",
+        "udi":"(00)00000000000000(00)",
+        "safety_advices":"",
+        "special_operating_instructions":"Designed for a t1w_mtflash sequence with a GRAPPA reconstruction algorithm",
+        "additional_relevant_information":"This container still in a testing phase and should be used for diagnostic purposes."
+  }
+  },
+  "reconstruction": {
+    "transfer_protocol": {
+      "protocol": "ISMRMRD",
+      "version": "1.4.1"
+    },
+    "port": 9002,
+    "emitter": "image",
+    "injector": "image",
+    "can_process_adjustment_data": false,
+    "can_use_gpu": true,
+    "min_count_required_gpus": 1,
+    "min_required_gpu_memory":  65536,
+    "min_required_memory":  65536,
+    "min_count_required_cpu_cores": 4,
+    "content_qualification_type": "RESEARCH"
+  },
+  "parameters": [
+    {
+      "id": "config",
+      "type": "choice",
+      "label": { "en": "config" },
+      "values": [
+        {
+          "id": "MCPC_c_opt",
+          "name": { "en": "MCPC-3D-S Memory-Efficient Option" }
+        },
+        {
+          "id": "MCPC_uncompiled",
+          "name": { "en": "Standard MCPC-3D-S Algorithm via Julia" }
+        },
+        {
+          "id": "MCPCLogger",
+          "name": { "en": "MCPC-3D-S Logger" }
+        }
+      ],
+      "default": "MCPC_compiled",
+      "information": { "en": "Define the config to be executed by MRD server" }
+    },
+        {
+      "id": "phaseScale",
+      "label": { "en": "2pi Phase Scale" },
+      "type": "boolean",
+      "information": { "en": "Scales Phase Images to -2pi to 2pi else -pi to pi if unchecked before MCPC-3D-S algorithm" },
+      "default": true
+    },
+    {
+      "id": "replaceGRAPPA",
+      "label": { "en": "Replace GRAPPA Images" },
+      "type": "boolean",
+      "information": { "en": "Replaces GRAPPA Images with MCPC-3D-S Images, designed for saving uncombined images." },
+      "default": false
+    },
+    {
+      "id": "logTime",
+      "label": { "en": "Performance Timer" },
+      "type": "boolean",
+      "information": { "en": "Times each major step of the container, mainly for debug purposes." },
+      "default": false
+    },
+    {
+      "id": "sendOriginal",
+      "label": { "en": "Send Original Images" },
+      "type": "boolean",
+      "information": { "en": "Send Original ThreeDream images back" },
+      "default": false
+    } 
+  ]
+}
