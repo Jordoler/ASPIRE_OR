@@ -43,18 +43,18 @@
       "values": [
         {
           "id": "MCPC_c_opt",
-          "name": { "en": "MCPC-3D-S Memory-Efficient Option" }
+          "name": { "en": "MCPC-3D-S Memory-Efficient" }
         },
         {
           "id": "MCPC_uncompiled",
-          "name": { "en": "Standard MCPC-3D-S Algorithm via Julia" }
+          "name": { "en": "MCPC-3D-S Standard" }
         },
         {
           "id": "MCPCLogger",
           "name": { "en": "MCPC-3D-S Logger" }
         }
       ],
-      "default": "MCPC_compiled",
+      "default": "MCPC_uncompiled",
       "information": { "en": "Define the config to be executed by MRD server" }
     },
         {
